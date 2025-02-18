@@ -20,11 +20,13 @@ public class InputManager : MonoBehaviour{
             input+=Vector3.forward;
             Debug.Log("move player forward");
         }
-        if (Input.GetKey(KeyCode.W)){
+        if (Input.GetKey(KeyCode.S)){
             input+=Vector3.back;
             Debug.Log("move player backward");
         }
-         OnMove?.Invoke(input);
+        OnMove?.Invoke(input);
+
+
         if (Input.GetKeyDown(KeyCode.Space)){
             OnSpacePressed?.Invoke();
         }

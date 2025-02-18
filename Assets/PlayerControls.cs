@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour{
     }
 
     private void MovePlayer(Vector3 direction){
-        Vector3 moveDirection = new(direction.x, 0f, direction.y);
+        Vector3 moveDirection = new(direction.x, direction.y, direction.z);
         rb.AddForce(speed * moveDirection);
 
     }
