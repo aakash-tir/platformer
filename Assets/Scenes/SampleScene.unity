@@ -962,7 +962,6 @@ MonoBehaviour:
   OnMove:
     m_PersistentCalls:
       m_Calls: []
-  JumpCounter: 0
 --- !u!4 &1752838855
 Transform:
   m_ObjectHideFlags: 0
@@ -992,7 +991,7 @@ GameObject:
   - component: {fileID: 1853929651}
   m_Layer: 0
   m_Name: ground
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1122,7 +1121,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputManager: {fileID: 1752838854}
   speed: 5
-  jump: 5
+  jump: 10
+  JumpCounter: 0
 --- !u!54 &1995846555
 Rigidbody:
   m_ObjectHideFlags: 0

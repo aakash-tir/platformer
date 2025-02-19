@@ -6,7 +6,7 @@ public class InputManager : MonoBehaviour{
     public UnityEvent<Vector3> Jump = new UnityEvent<Vector3>();
     public UnityEvent<Vector3> OnMove= new UnityEvent<Vector3>();
 
-    public int JumpCounter=0;
+
     void Update(){
         
         Vector3 input = Vector3.zero;
@@ -29,9 +29,9 @@ public class InputManager : MonoBehaviour{
         OnMove?.Invoke(input);
 
 
-         if (Input.GetKey(KeyCode.Space) && JumpCounter<2 ){
+        if (Input.GetKey(KeyCode.Space)  ){
             input+=Vector3.up;
-            JumpCounter+=1;
+            //Debug.Log("jump ");
             Jump?.Invoke(input);
             
         }
@@ -39,4 +39,6 @@ public class InputManager : MonoBehaviour{
         
 
     }
+
+    
 }

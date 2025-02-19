@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour{
     [SerializeField] private InputManager inputManager;
     [SerializeField] private float speed;
     [SerializeField] private float jump;
+    [SerializeField] private float JumpCounter;
 
     private Rigidbody rb;
     void Start(){
@@ -15,7 +16,7 @@ public class PlayerController : MonoBehaviour{
     }
     void Update()
     {
-     transform.rotation = Quaternion.Euler(0,transform.rotation.eulerAngles.y,0);   
+     //transform.rotation = Quaternion.Euler(0,transform.rotation.eulerAngles.y,0);   
     }
 
     private void MovePlayer(Vector3 direction){
@@ -24,7 +25,20 @@ public class PlayerController : MonoBehaviour{
 
     }
     public void onJump(Vector3 input){
-        rb.AddForce(input * jump,ForceMode.Impulse);
+        if (JumpCounter<2 ){
+            rb.AddForce(input * jump,ForceMode.Impulse);
+            JumpCounter+=1;
+            Debug.Log("jump counter is "+JumpCounter);
+        }
         
+        
+    }
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("ground"))
+        {
+            JumpCounter = 0; 
+            Debug.Log("jump counter is "+JumpCounter +" after land");
+        }
     }
 }
