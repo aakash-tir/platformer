@@ -29,7 +29,7 @@ public class InputManager : MonoBehaviour{
         OnMove?.Invoke(input);
 
 
-        if (Input.GetKey(KeyCode.Space)  ){
+        if (Input.GetKeyDown(KeyCode.Space)  ){
             input+=Vector3.up;
             //Debug.Log("jump ");
             Jump?.Invoke(input);
