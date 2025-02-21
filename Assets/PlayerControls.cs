@@ -17,10 +17,10 @@ public class PlayerController : MonoBehaviour{
         rb=GetComponent<Rigidbody>();
         
     }
-    /*void Update(){
+    void Update(){
         transform.forward = freeLookCamera.transform.forward;
         transform.rotation = Quaternion.Euler(0,transform.rotation.eulerAngles.y,0);
-    }*/
+    }
 
     private void MovePlayer(Vector3 direction){
         Vector3 moveDirection = new(direction.x, direction.y, direction.z);
