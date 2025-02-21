@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour{
     }
 
     private void MovePlayer(Vector3 direction){
-        Vector3 moveDirection = new(direction.x, direction.y, direction.z);
+        Vector3 moveDirection = CameraRelativeMovement(direction);
         rb.AddForce(speed * moveDirection);
 
     }
@@ -35,6 +35,17 @@ public class PlayerController : MonoBehaviour{
         }
         
         
+    }
+
+    private Vector3 CameraRelativeMovement(Vector3 direction)
+    {
+        Vector3 cameraForward = freeLookCamera.transform.forward;
+        Vector3 cameraRight = freeLookCamera.transform.right;
+
+        cameraForward.y = 0;
+        cameraRight.y = 0;
+
+        return (cameraForward * direction.z + cameraRight * direction.x).normalized;
     }
     void OnCollisionEnter(Collision collision)
     {
